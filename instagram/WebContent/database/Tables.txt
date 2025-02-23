@@ -1,0 +1,75 @@
+create database Filtering_Instagram;
+
+use Filtering_Instagram;
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `password` text,
+  PRIMARY KEY  (`id`)
+);
+
+INSERT INTO `admin` VALUES (1,'admin','admin');
+
+CREATE TABLE `dislike` (
+  `id` int(11) NOT NULL auto_increment,
+  `imgid` text,
+  `username` text,
+  `grp` text,
+  `imgname` text,
+  `reason` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL auto_increment,
+  `fromgrp` text,
+  `rfrom` text,
+  `togrp` text,
+  `rto` text,
+  `status` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `grp` text,
+  `imgname` text,
+  `tagname` text,
+  `uses` text,
+  `color` text,
+  `description` text,
+  `dt` text,
+  `image` blob,
+  `rank` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `recommends` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `ugrp` text,
+  `fname` text,
+  `fgrp` text,
+  `imgid` int(11) default NULL,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL auto_increment,
+  `grp` text,
+  `username` text,
+  `password` text,
+  `email` text,
+  `mobile` text,
+  `dob` text,
+  `gender` text,
+  `address` text,
+  `pincode` text,
+  `status` text,
+  `image` blob,
+  PRIMARY KEY  (`id`)
+);
+
